@@ -4,11 +4,31 @@
 	<meta charset="UTF-8">
 	<title>theywantyoutobelieve.com | coming soon&hellip;</title>
 	<link rel="stylesheet" href="z-css/custom.css">
+	<script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
 </head>
 <body>
 	<div class="wrapper">
-		<p><img src="z-images/logo.00.png" alt=""></p><br />
+		<p><img src="z-images/logo.00.png" alt=""></p>
 		<p>coming soon&hellip;</p>
 	</div>
+	<div class="searchlight"></div>
+
+	<script>
+     // $(document).ready(function () {
+
+		$('.searchlight')
+	    .on('mousemove', function(event) {
+	        $(this).addClass('on').css({'margin-left': event.pageX - 150, 'margin-top': event.pageY - 150});
+	    })
+	    .on('mouseout', function(event) {
+	        $(this).removeClass('on');
+	    })
+	    .on('click', function() {
+	        $(this).fadeOut(function() {
+	            $(this).remove();
+	        });
+	    });
+    // });
+	</script>
 </body>
 </html>

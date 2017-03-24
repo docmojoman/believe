@@ -1,5 +1,17 @@
-/* @override 
-	http://localhost:8000/tmpsite/z-css/custom.css */
+<?php
+  $bg = array('black-and-white-dark-car-vehicle.jpg', 'parking-parking-lot-underground-garage.jpg', 'pexels-photo-169978.jpg', 'pexels-photo-209999.jpg', 'pexels-photo-263789.jpg'); // array of filenames
+
+  $i = rand(0, count($bg)-1); // generate random number size of the array
+  $selectedBg = "$bg[$i]"; // set variable equal to which random filename was chosen
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>theywantyoutobelieve.com | coming soon&hellip;</title>
+	<!-- <link rel="stylesheet" href="z-css/custom.css"> -->
+	<style type="text/css">
+	<!--
 	body {
 		margin: 0px auto;
 		padding: 0px 0px;
@@ -18,8 +30,7 @@
 		justify-content: center;
 		align-items: center;
 		text-align: center;
-		/*background: url("../z-images/backgrounds/pexels-photo-209999.jpeg") no-repeat center;*/
-		/*background: url("../z-images/backgrounds/pexels-photo-169978.jpeg") no-repeat center;*/
+		background: url("./z-images/backgrounds/<?php echo $selectedBg; ?>") no-repeat center;
 	    background-size: cover;
 	}
 	
@@ -56,3 +67,32 @@
     background: -ms-radial-gradient(center, ellipse cover,  rgba(0,0,0,0) 0%,rgba(0,0,0,0) 50%,rgba(0,0,0,1) 60%,rgba(0,0,0,1) 100%); /* IE10+ */
     background: radial-gradient(ellipse at center,  rgba(0,0,0,0) 0%,rgba(0,0,0,0) 50%,rgba(0,0,0,1) 60%,rgba(0,0,0,1) 100%); /* W3C */
 }
+	-->
+	</style>
+	<script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+</head>
+<body>
+	<div class="wrapper">
+		<p><img src="z-images/logo.00.png" alt=""><br />coming soon&hellip;</p>
+	</div>
+	<div class="searchlight"></div>
+
+	<script>
+     // $(document).ready(function () {
+
+		$('.searchlight')
+	    .on('mousemove', function(event) {
+	        $(this).addClass('on').css({'margin-left': event.pageX - 150, 'margin-top': event.pageY - 150});
+	    })
+	    .on('mouseout', function(event) {
+	        $(this).removeClass('on');
+	    })
+	    .on('click', function() {
+	        $(this).fadeOut(function() {
+	            $(this).remove();
+	        });
+	    });
+    // });
+	</script>
+</body>
+</html>
